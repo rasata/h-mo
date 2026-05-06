@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useI18n } from "@/i18n/useI18n";
 import { Section } from "./Section";
+import { HybridScenarios } from "./HybridScenarios";
 
 // Pre-computed approximate ~1h driving isochrone polygon centered on Montbéliard (47.5106, 6.7986).
 // Hand-tuned to follow major axes (A36 east toward Mulhouse/Belfort, A36 west toward Besançon,
@@ -132,6 +133,13 @@ export function MobilityMap() {
             aria-label="Carte zone de mobilité Montbéliard"
           />
           <p className="text-xs text-muted-foreground mt-3 italic">{t.mobility.mapHint}</p>
+
+          <div className="mt-8">
+            <h3 className="text-xs uppercase tracking-[0.2em] text-primary mb-4">
+              Hybride — rythme proposé selon la distance
+            </h3>
+            <HybridScenarios />
+          </div>
         </div>
         <div className="lg:col-span-2 space-y-7">
           <div>
