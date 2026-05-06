@@ -49,29 +49,3 @@ export function Contact() {
     </Section>
   );
 }
-
-function Field({
-  name,
-  label,
-  type = "text",
-  required,
-}: {
-  name: string;
-  label: string;
-  type?: string;
-  required?: boolean;
-}) {
-  return (
-    <div>
-      <label className="text-xs uppercase tracking-[0.18em] text-muted-foreground block mb-2">
-        {label}
-      </label>
-      <input
-        name={name}
-        type={type}
-        required={required}
-        className="w-full bg-transparent border hairline rounded-sm px-4 py-3 text-sm focus:border-primary focus:outline-none transition-colors"
-      />
-    </div>
-  );
-}
