@@ -297,7 +297,7 @@ const fr: Dict = {
   },
   footer: {
     rights: "Tous droits réservés.",
-    repByline: "Profil commercialisé par Aquantic (Zonova SARL) — Belfort.",
+    repByline: "Profil propulsé par Aquantic (Zonova SARL) — Belfort.",
   },
 };
 
