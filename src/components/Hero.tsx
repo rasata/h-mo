@@ -1,4 +1,5 @@
 import { useI18n } from "@/i18n/useI18n";
+import portrait from "@/assets/herve-monrique.jpg";
 
 export function Hero() {
   const { t, locale } = useI18n();
@@ -11,7 +12,8 @@ export function Hero() {
         <div className="absolute bottom-0 left-0 w-[40vw] h-[40vw] rounded-full bg-secondary/15 blur-3xl" />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 lg:px-10">
+      <div className="max-w-6xl mx-auto px-6 lg:px-10 grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-16 items-start">
+        <div>
         <p className="text-xs uppercase tracking-[0.25em] text-primary font-medium mb-8">
           {t.hero.eyebrow}
         </p>
