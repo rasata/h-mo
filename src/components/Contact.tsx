@@ -13,11 +13,31 @@ import {
 } from "@/components/ui/dialog";
 import { CheckCircle2 } from "lucide-react";
 
+const DIALOG_COPY = {
+  fr: {
+    title: "Message envoyé",
+    description: "Merci, votre message a bien été transmis. Hervé reviendra vers vous rapidement.",
+    close: "Fermer",
+  },
+  en: {
+    title: "Message sent",
+    description: "Thank you, your message has been delivered. Hervé will get back to you shortly.",
+    close: "Close",
+  },
+  de: {
+    title: "Nachricht gesendet",
+    description: "Vielen Dank, Ihre Nachricht wurde übermittelt. Hervé meldet sich in Kürze bei Ihnen.",
+    close: "Schließen",
+  },
+} as const;
+
 export function Contact() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const submit = useServerFn(submitContact);
   const [status, setStatus] = useState<"idle" | "loading" | "sent" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  const dialogCopy = DIALOG_COPY[locale];
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
