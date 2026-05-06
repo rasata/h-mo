@@ -18,7 +18,7 @@ export function Contact() {
   }
 
   return (
-    <Section id="contact" eyebrow="08" title={t.contact.title} intro={t.contact.intro}>
+    <Section id="contact" eyebrow="07" title={t.contact.title} intro={t.contact.intro}>
       <div className="grid md:grid-cols-5 gap-10">
         <form onSubmit={handleSubmit} className="md:col-span-3 space-y-5">
           <div className="grid sm:grid-cols-2 gap-5">
