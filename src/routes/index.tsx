@@ -1,26 +1,50 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { I18nProvider } from "@/i18n/useI18n";
+import { Header } from "@/components/Header";
+import { Hero } from "@/components/Hero";
+import { About, Expertise, Realisations, Parcours, Formation } from "@/components/Sections";
+import { MobilityMap } from "@/components/MobilityMap";
+import { Contact } from "@/components/Contact";
+import { Footer } from "@/components/Footer";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Hervé Monrique — Cutover Leader & Chef de Projet senior" },
+      {
+        name: "description",
+        content:
+          "30 ans d'expérience industrielle. Pilotage de cut-over ERP, transformation digitale et coordination cross-fonctionnelle pour grands groupes industriels et énergie.",
+      },
+      { property: "og:title", content: "Hervé Monrique — Cutover Leader & Chef de Projet senior" },
+      {
+        property: "og:description",
+        content:
+          "Cutover Leader · PMO industriel · Migration SI. 30 ans d'expérience. Disponible 01/07/2026.",
+      },
+      { property: "og:type", content: "profile" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
 function Index() {
-  return <PlaceholderIndex />;
+  return (
+    <I18nProvider>
+      <div className="min-h-screen bg-background text-foreground">
+        <Header />
+        <main>
+          <Hero />
+          <About />
+          <Expertise />
+          <Realisations />
+          <Parcours />
+          <Formation />
+          <MobilityMap />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </I18nProvider>
+  );
 }
