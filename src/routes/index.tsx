@@ -58,9 +58,10 @@ function ParamSync() {
 
 function Index() {
   const { lang, theme } = Route.useSearch();
+  const hasSharedParams = Boolean(lang || theme);
   return (
     <ThemeProvider initial={theme as Theme | undefined}>
-      <I18nProvider>
+      <I18nProvider initial={lang as Locale | undefined}>
         <ParamSync />
         <div className="min-h-screen bg-background text-foreground">
           <Header />
@@ -75,7 +76,7 @@ function Index() {
             <Contact />
           </main>
           <Footer />
-          <WelcomeShare />
+          {!hasSharedParams && <WelcomeShare />}
         </div>
       </I18nProvider>
     </ThemeProvider>
