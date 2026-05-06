@@ -54,6 +54,7 @@ export function Contact() {
         },
       });
       setStatus("sent");
+      setConfirmOpen(true);
       (e.target as HTMLFormElement).reset();
     } catch (err) {
       console.error(err);
