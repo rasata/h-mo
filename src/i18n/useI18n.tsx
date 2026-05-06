@@ -20,12 +20,16 @@ function detectInitialLocale(): Locale {
   return "fr";
 }
 
-export function I18nProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("fr");
+export function I18nProvider({ children, initial }: { children: ReactNode; initial?: Locale }) {
+  const [locale, setLocaleState] = useState<Locale>(initial ?? "fr");
 
   useEffect(() => {
-    setLocaleState(detectInitialLocale());
-  }, []);
+    if (initial) {
+      setLocaleState(initial);
+    } else {
+      setLocaleState(detectInitialLocale());
+    }
+  }, [initial]);
 
   useEffect(() => {
     if (typeof document !== "undefined") document.documentElement.lang = locale;
