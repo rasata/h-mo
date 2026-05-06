@@ -53,6 +53,16 @@ export function Hero() {
         <p className="mt-12 text-xs uppercase tracking-[0.2em] text-muted-foreground border-t hairline pt-6 max-w-xl">
           {t.hero.availability}
         </p>
+        </div>
+
+        <div className="relative shrink-0 mx-auto lg:mx-0 lg:mt-4">
+          <div className="absolute -inset-3 bg-accent/15 rounded-full blur-2xl -z-10" />
+          <img
+            src={portrait}
+            alt={t.hero.name}
+            className="w-44 h-44 md:w-56 md:h-56 lg:w-64 lg:h-64 object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-700 shadow-xl ring-1 ring-border"
+          />
+        </div>
       </div>
     </section>
   );
