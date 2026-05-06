@@ -131,6 +131,27 @@ export function Contact() {
         </aside>
       </div>
     </Section>
+    <Dialog open={confirmOpen} onOpenChange={setConfirmOpen}>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle className="flex items-center gap-2">
+            <CheckCircle2 className="size-5 text-primary" />
+            {dialogCopy.title}
+          </DialogTitle>
+          <DialogDescription>{dialogCopy.description}</DialogDescription>
+        </DialogHeader>
+        <DialogFooter>
+          <button
+            type="button"
+            onClick={() => setConfirmOpen(false)}
+            className="bg-primary text-primary-foreground px-5 py-2 text-sm font-medium hover:opacity-90 transition rounded-sm"
+          >
+            {dialogCopy.close}
+          </button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+    </>
   );
 }
 
