@@ -3,6 +3,15 @@ import { useServerFn } from "@tanstack/react-start";
 import { useI18n } from "@/i18n/useI18n";
 import { Section } from "./Section";
 import { submitContact } from "@/server/contact.functions";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from "@/components/ui/dialog";
+import { CheckCircle2 } from "lucide-react";
 
 export function Contact() {
   const { t } = useI18n();
