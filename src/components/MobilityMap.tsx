@@ -69,20 +69,19 @@ export function MobilityMap() {
         { subdomains: "abcd", maxZoom: 19, pane: "shadowPane" },
       ).addTo(map);
 
-      const styles = getComputedStyle(document.documentElement);
-      const primary = styles.getPropertyValue("--primary").trim() || "#365a6e";
+      const primary = "#3a5e72";
 
       L.polygon(ISOCHRONE, {
-        color: `oklch(${primary})`,
+        color: primary,
         weight: 1.5,
-        fillColor: `oklch(${primary})`,
+        fillColor: primary,
         fillOpacity: 0.12,
         smoothFactor: 1.2,
       }).addTo(map);
 
       const dotIcon = L.divIcon({
         className: "",
-        html: `<div style="width:10px;height:10px;border-radius:50%;background:oklch(${primary});box-shadow:0 0 0 3px rgba(255,255,255,0.9);"></div>`,
+        html: `<div style="width:10px;height:10px;border-radius:50%;background:${primary};box-shadow:0 0 0 3px rgba(255,255,255,0.9);"></div>`,
         iconSize: [10, 10],
         iconAnchor: [5, 5],
       });
