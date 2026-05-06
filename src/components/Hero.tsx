@@ -2,8 +2,7 @@ import { useI18n } from "@/i18n/useI18n";
 import portrait from "@/assets/herve-monrique.jpg";
 
 export function Hero() {
-  const { t, locale } = useI18n();
-  const pdfHref = `/cv/Herve-Monrique-CV-${locale.toUpperCase()}.pdf`;
+  const { t } = useI18n();
 
   return (
     <section id="top" className="relative pt-36 pb-24 lg:pt-44 lg:pb-32 overflow-hidden">
@@ -38,16 +37,16 @@ export function Hero() {
               <path d="M5 12h14M13 5l7 7-7 7" />
             </svg>
           </a>
-          <a
-            href={pdfHref}
-            download
+          <button
+            type="button"
+            onClick={() => window.print()}
             className="inline-flex items-center gap-2 border hairline px-6 py-3 text-sm font-medium hover:bg-surface transition-colors rounded-sm"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-              <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" />
+              <path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v7H6z" />
             </svg>
             {t.hero.pdfCta}
-          </a>
+          </button>
         </div>
 
         <p className="mt-12 text-xs uppercase tracking-[0.2em] text-muted-foreground border-t hairline pt-6 max-w-xl">
