@@ -3,12 +3,41 @@ import { useServerFn } from "@tanstack/react-start";
 import { useI18n } from "@/i18n/useI18n";
 import { Section } from "./Section";
 import { submitContact } from "@/server/contact.functions";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from "@/components/ui/dialog";
+import { CheckCircle2 } from "lucide-react";
+
+const DIALOG_COPY = {
+  fr: {
+    title: "Message envoyé",
+    description: "Merci, votre message a bien été transmis. Hervé reviendra vers vous rapidement.",
+    close: "Fermer",
+  },
+  en: {
+    title: "Message sent",
+    description: "Thank you, your message has been delivered. Hervé will get back to you shortly.",
+    close: "Close",
+  },
+  de: {
+    title: "Nachricht gesendet",
+    description: "Vielen Dank, Ihre Nachricht wurde übermittelt. Hervé meldet sich in Kürze bei Ihnen.",
+    close: "Schließen",
+  },
+} as const;
 
 export function Contact() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const submit = useServerFn(submitContact);
   const [status, setStatus] = useState<"idle" | "loading" | "sent" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  const dialogCopy = DIALOG_COPY[locale];
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -25,6 +54,7 @@ export function Contact() {
         },
       });
       setStatus("sent");
+      setConfirmOpen(true);
       (e.target as HTMLFormElement).reset();
     } catch (err) {
       console.error(err);
@@ -34,6 +64,7 @@ export function Contact() {
   }
 
   return (
+    <>
     <Section id="contact" eyebrow="07" title={t.contact.title} intro={t.contact.intro}>
       <div className="grid md:grid-cols-5 gap-10">
         <form onSubmit={handleSubmit} className="md:col-span-3 space-y-5">
@@ -100,6 +131,27 @@ export function Contact() {
         </aside>
       </div>
     </Section>
+    <Dialog open={confirmOpen} onOpenChange={setConfirmOpen}>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle className="flex items-center gap-2">
+            <CheckCircle2 className="size-5 text-primary" />
+            {dialogCopy.title}
+          </DialogTitle>
+          <DialogDescription>{dialogCopy.description}</DialogDescription>
+        </DialogHeader>
+        <DialogFooter>
+          <button
+            type="button"
+            onClick={() => setConfirmOpen(false)}
+            className="bg-primary text-primary-foreground px-5 py-2 text-sm font-medium hover:opacity-90 transition rounded-sm"
+          >
+            {dialogCopy.close}
+          </button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+    </>
   );
 }
 
