@@ -81,6 +81,7 @@ type Dict = {
     confidential: string;
     success: string;
     errorPrefix: string;
+    unknownError: string;
     name: string;
     email: string;
     function: string;
@@ -298,6 +299,7 @@ const fr: Dict = {
     confidential: "Toute prise de contact est traitée de manière confidentielle.",
     success: "Merci, votre message a bien été transmis.",
     errorPrefix: "Erreur",
+    unknownError: "Erreur inconnue",
     name: "Nom",
     email: "Email",
     function: "Fonction",
@@ -514,6 +516,7 @@ const en: Dict = {
     confidential: "Every contact is handled confidentially.",
     success: "Thank you, your message has been delivered.",
     errorPrefix: "Error",
+    unknownError: "Unknown error",
     name: "Name",
     email: "Email",
     function: "Role",
@@ -731,6 +734,7 @@ const de: Dict = {
     confidential: "Jede Kontaktaufnahme wird vertraulich behandelt.",
     success: "Vielen Dank, Ihre Nachricht wurde übermittelt.",
     errorPrefix: "Fehler",
+    unknownError: "Unbekannter Fehler",
     name: "Name",
     email: "E-Mail",
     function: "Funktion",

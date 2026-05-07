@@ -56,7 +56,7 @@ export function Contact() {
     } catch (err) {
       console.error(err);
       setStatus("error");
-      setErrorMsg(err instanceof Error ? err.message : "Erreur inconnue");
+      setErrorMsg(err instanceof Error ? err.message : t.contact.unknownError);
     }
   }
 
