@@ -1,8 +1,7 @@
 import { useState, type FormEvent } from "react";
-import { useServerFn } from "@tanstack/react-start";
 import { useI18n } from "@/i18n/useI18n";
 import { Section } from "./Section";
-import { submitContact } from "@/server/contact.functions";
+import { submitContact } from "@/lib/contact";
 import {
   Dialog,
   DialogContent,
@@ -33,7 +32,6 @@ const DIALOG_COPY = {
 
 export function Contact() {
   const { t, locale } = useI18n();
-  const submit = useServerFn(submitContact);
   const [status, setStatus] = useState<"idle" | "loading" | "sent" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [confirmOpen, setConfirmOpen] = useState(false);
@@ -45,13 +43,11 @@ export function Contact() {
     setStatus("loading");
     setErrorMsg("");
     try {
-      await submit({
-        data: {
-          name: String(f.get("name") ?? ""),
-          email: String(f.get("email") ?? ""),
-          function: String(f.get("function") ?? ""),
-          message: String(f.get("message") ?? ""),
-        },
+      await submitContact({
+        name: String(f.get("name") ?? ""),
+        email: String(f.get("email") ?? ""),
+        function: String(f.get("function") ?? ""),
+        message: String(f.get("message") ?? ""),
       });
       setStatus("sent");
       setConfirmOpen(true);
