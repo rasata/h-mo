@@ -41,7 +41,13 @@ type Dict = {
   parcours: {
     title: string;
     current: string;
-    detailed: { period: string; company: string; role: string; location: string; bullets: string[] }[];
+    detailed: {
+      period: string;
+      company: string;
+      role: string;
+      location: string;
+      bullets: string[];
+    }[];
     earlyTitle: string;
     earlyBody: string;
   };
@@ -73,6 +79,8 @@ type Dict = {
     title: string;
     intro: string;
     confidential: string;
+    success: string;
+    errorPrefix: string;
     name: string;
     email: string;
     function: string;
@@ -111,7 +119,8 @@ const fr: Dict = {
       "Trente ans à faire converger ingénierie, IT et opérations pour réussir des bascules industrielles à fort enjeu — sans rupture pour la production.",
     contactCta: "Me contacter",
     pdfCta: "Télécharger le CV (PDF)",
-    availability: "30 ans d'expérience — Industrie · Énergie · Migration ERP · Disponible 01/07/2026",
+    availability:
+      "30 ans d'expérience — Industrie · Énergie · Migration ERP · Disponible 01/07/2026",
   },
   about: {
     title: "Profil exécutif",
@@ -280,12 +289,15 @@ const fr: Dict = {
   },
   recommendations: {
     title: "Recommandations",
-    placeholder: "Références de dirigeants et clients communiquées sur demande, dans le respect des règles de confidentialité.",
+    placeholder:
+      "Références de dirigeants et clients communiquées sur demande, dans le respect des règles de confidentialité.",
   },
   contact: {
     title: "Contact",
     intro: "Échanges confidentiels — pour discuter d'une mission, d'un poste ou d'un mandat.",
     confidential: "Toute prise de contact est traitée de manière confidentielle.",
+    success: "Merci, votre message a bien été transmis.",
+    errorPrefix: "Erreur",
     name: "Nom",
     email: "Email",
     function: "Fonction",
@@ -324,7 +336,8 @@ const en: Dict = {
       "Thirty years bringing engineering, IT and operations together to deliver high-stakes industrial cutovers — without disrupting production.",
     contactCta: "Get in touch",
     pdfCta: "Download CV (PDF)",
-    availability: "30 years of experience — Industry · Energy · ERP migration · Available 07/01/2026",
+    availability:
+      "30 years of experience — Industry · Energy · ERP migration · Available 07/01/2026",
   },
   about: {
     title: "Executive profile",
@@ -492,12 +505,15 @@ const en: Dict = {
   },
   recommendations: {
     title: "References",
-    placeholder: "Executive and client references shared upon request, in compliance with confidentiality rules.",
+    placeholder:
+      "Executive and client references shared upon request, in compliance with confidentiality rules.",
   },
   contact: {
     title: "Contact",
     intro: "Confidential conversations — to discuss an engagement, a position or a mandate.",
     confidential: "Every contact is handled confidentially.",
+    success: "Thank you, your message has been delivered.",
+    errorPrefix: "Error",
     name: "Name",
     email: "Email",
     function: "Role",
@@ -536,7 +552,8 @@ const de: Dict = {
       "Dreißig Jahre Erfahrung im Zusammenführen von Engineering, IT und Betrieb für anspruchsvolle Industrie-Cutover — ohne Produktionsunterbrechung.",
     contactCta: "Kontakt aufnehmen",
     pdfCta: "Lebenslauf herunterladen (PDF)",
-    availability: "30 Jahre Erfahrung — Industrie · Energie · ERP-Migration · Verfügbar ab 01.07.2026",
+    availability:
+      "30 Jahre Erfahrung — Industrie · Energie · ERP-Migration · Verfügbar ab 01.07.2026",
   },
   about: {
     title: "Executive-Profil",
@@ -573,7 +590,8 @@ const de: Dict = {
   },
   realisations: {
     title: "Wichtige Erfolge",
-    intro: "Vier repräsentative Projekte, ausgewählt nach Wirkung und bereichsübergreifendem Anspruch.",
+    intro:
+      "Vier repräsentative Projekte, ausgewählt nach Wirkung und bereichsübergreifendem Anspruch.",
     items: [
       {
         challenge: "ERP-Cutover — General Electric Vernova",
@@ -704,12 +722,15 @@ const de: Dict = {
   },
   recommendations: {
     title: "Referenzen",
-    placeholder: "Referenzen von Führungskräften und Kunden auf Anfrage, unter Wahrung der Vertraulichkeit.",
+    placeholder:
+      "Referenzen von Führungskräften und Kunden auf Anfrage, unter Wahrung der Vertraulichkeit.",
   },
   contact: {
     title: "Kontakt",
     intro: "Vertrauliche Gespräche — über ein Mandat, eine Position oder einen Auftrag.",
     confidential: "Jede Kontaktaufnahme wird vertraulich behandelt.",
+    success: "Vielen Dank, Ihre Nachricht wurde übermittelt.",
+    errorPrefix: "Fehler",
     name: "Name",
     email: "E-Mail",
     function: "Funktion",

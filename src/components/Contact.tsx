@@ -47,7 +47,7 @@ export function Contact() {
       await submitContact({
         name: String(f.get("name") ?? ""),
         email: String(f.get("email") ?? ""),
-        function: String(f.get("function") ?? ""),
+        ["function"]: String(f.get("function") ?? ""),
         message: String(f.get("message") ?? ""),
       });
       setStatus("sent");
@@ -89,10 +89,12 @@ export function Contact() {
             >
               {status === "loading" ? "…" : t.contact.send}
             </button>
-            {status === "sent" && (
-              <p className="text-xs text-primary">↗ Merci, votre message a bien été transmis.</p>
+            {status === "sent" && <p className="text-xs text-primary">↗ {t.contact.success}</p>}
+            {status === "error" && (
+              <p className="text-xs text-destructive">
+                {t.contact.errorPrefix} : {errorMsg}
+              </p>
             )}
-            {status === "error" && <p className="text-xs text-destructive">Erreur : {errorMsg}</p>}
             <p className="text-xs text-muted-foreground italic pt-2">{t.contact.confidential}</p>
           </form>
 
