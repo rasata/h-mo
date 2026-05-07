@@ -29,8 +29,7 @@ export function Contact() {
             linkedin.com/in/herve-monrique
           </a>
           <div className="border-t hairline pt-4 text-xs text-muted-foreground leading-relaxed">
-            Profil propulsé par <strong className="text-foreground/80">Aquantic</strong> (Zonova
-            SARL) — Belfort.
+            profil template initiated with ❤️ by <strong className="text-foreground/80">Aquantic</strong>
           </div>
         </div>
       </aside>
