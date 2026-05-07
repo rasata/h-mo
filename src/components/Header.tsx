@@ -2,7 +2,15 @@ import { useEffect, useState } from "react";
 import { useI18n } from "@/i18n/useI18n";
 import { LOCALES, localeLabels } from "@/i18n/translations";
 
-const sections = ["about", "expertise", "realisations", "parcours", "formation", "mobility"] as const;
+const sections = [
+  "about",
+  "expertise",
+  "realisations",
+  "parcours",
+  "formation",
+  "mobility",
+  "contact",
+] as const;
 
 export function Header() {
   const { t, locale, setLocale } = useI18n();
@@ -58,8 +66,22 @@ export function Header() {
             onClick={() => setOpen((v) => !v)}
             aria-label="Menu"
           >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              {open ? <path d="M6 6l12 12M18 6L6 18" /> : <><path d="M3 7h18" /><path d="M3 17h18" /></>}
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              {open ? (
+                <path d="M6 6l12 12M18 6L6 18" />
+              ) : (
+                <>
+                  <path d="M3 7h18" />
+                  <path d="M3 17h18" />
+                </>
+              )}
             </svg>
           </button>
         </div>
