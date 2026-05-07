@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useI18n } from "@/i18n/useI18n";
 import { LOCALES, localeLabels } from "@/i18n/translations";
 
-const sections = ["about", "expertise", "realisations", "parcours", "formation", "mobility", "contact"] as const;
+const sections = ["about", "expertise", "realisations", "parcours", "formation", "mobility"] as const;
 
 export function Header() {
   const { t, locale, setLocale } = useI18n();
