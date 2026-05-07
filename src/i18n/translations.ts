@@ -295,7 +295,7 @@ const fr: Dict = {
   },
   contact: {
     title: "Contact",
-    intro: "Échanges confidentiels — pour discuter d'une mission, d'un poste ou d'un mandat.",
+    intro: "Échanges confidentiels — pour discuter d'une mission, d'un poste",
     confidential: "Toute prise de contact est traitée de manière confidentielle.",
     success: "Merci, votre message a bien été transmis.",
     errorPrefix: "Erreur",
@@ -311,7 +311,7 @@ const fr: Dict = {
   },
   footer: {
     rights: "Tous droits réservés.",
-    repByline: "Profil propulsé par Aquantic (Zonova SARL) — Belfort.",
+    repByline: "profil template initiated with ❤️ by Aquantic",
   },
 };
 
@@ -528,7 +528,7 @@ const en: Dict = {
   },
   footer: {
     rights: "All rights reserved.",
-    repByline: "Profile powered by Aquantic (Zonova SARL) — Belfort.",
+    repByline: "profil template initiated with ❤️ by Aquantic",
   },
 };
 
@@ -746,7 +746,7 @@ const de: Dict = {
   },
   footer: {
     rights: "Alle Rechte vorbehalten.",
-    repByline: "Profil bereitgestellt von Aquantic (Zonova SARL) — Belfort.",
+    repByline: "profil template initiated with ❤️ by Aquantic",
   },
 };
 
