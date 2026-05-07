@@ -8,6 +8,7 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { About, Expertise, Realisations, Parcours, Formation } from "@/components/Sections";
 import { MobilityMap } from "@/components/MobilityMap";
+import { Contact } from "@/components/Contact";
 
 import { Footer } from "@/components/Footer";
 import { WelcomeShare } from "@/components/WelcomeShare";
@@ -73,6 +74,7 @@ function Index() {
             <Parcours />
             <Formation />
             <MobilityMap />
+            <Contact />
           </main>
           <Footer />
           {!hasSharedParams && <WelcomeShare />}
